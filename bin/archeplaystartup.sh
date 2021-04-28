@@ -16,9 +16,12 @@ echo "microk8s start"
 snap try /archeplay/package/microk8s --classic
 echo "microk8s installation complete"
 usermod -a -G microk8s ubuntu
+echo "enabling microk8s"
 snap start --enable microk8s
+echo "microk8s enable complete"
 microk8s status --wait-ready
 sleep 5
+echo " enable addons "
 microk8s enable dns storage registry ingress
 echo "microk8s enabling"
 microk8s status --wait-ready
