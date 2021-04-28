@@ -26,8 +26,10 @@ microk8s enable dns storage registry ingress
 echo "microk8s enabling"
 microk8s status --wait-ready
 snap alias microk8s.kubectl kubectl
+echo "updating kubeconfig"
 microk8s config > /home/ubuntu/.kube/config
 chown -f -R ubuntu:ubuntu /home/ubuntu/.kube
+echo "microk8s status check"
 microk8s status --wait-ready
 sleep 10
 echo "LOG till -  "`date`
